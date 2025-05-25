@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pericles-luz/go-asaas/factory/factory_client_asaas"
-	"github.com/pericles-luz/go-asaas/model"
+	"github.com/pericles-luz/go-asaas/pkg/factory/factory_client_asaas"
+	"github.com/pericles-luz/go-asaas/pkg/model"
 	"github.com/pericles-luz/go-base/pkg/utils"
 	"github.com/stretchr/testify/require"
 )

@@ -3,7 +3,7 @@ package response
 import (
 	"encoding/json"
 
-	"github.com/pericles-luz/go-asaas/model"
+	"github.com/pericles-luz/go-asaas/pkg/model"
 )
 
 type Customer struct {

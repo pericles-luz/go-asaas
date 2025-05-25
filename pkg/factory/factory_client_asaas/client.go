@@ -1,6 +1,6 @@
 package factory_client_asaas
 
-import "github.com/pericles-luz/go-asaas/rest_asaas"
+import "github.com/pericles-luz/go-asaas/pkg/rest_asaas"
 
 func NewClient(configPath string) (*rest_asaas.Rest, error) {
 	engine := rest_asaas.NewEngine(map[string]interface{}{"InsecureSkipVerify": true})

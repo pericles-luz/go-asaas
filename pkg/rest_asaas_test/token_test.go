@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pericles-luz/go-asaas/rest_asaas"
+	"github.com/pericles-luz/go-asaas/pkg/rest_asaas"
 	"github.com/stretchr/testify/require"
 )
 

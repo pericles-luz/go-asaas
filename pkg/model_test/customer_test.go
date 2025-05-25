@@ -3,7 +3,7 @@ package model_test
 import (
 	"testing"
 
-	"github.com/pericles-luz/go-asaas/model"
+	"github.com/pericles-luz/go-asaas/pkg/model"
 	"github.com/stretchr/testify/require"
 )
 
