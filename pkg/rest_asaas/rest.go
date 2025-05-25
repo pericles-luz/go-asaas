@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/pericles-luz/go-asaas/model"
+	"github.com/pericles-luz/go-asaas/pkg/model"
 	"github.com/pericles-luz/go-base/pkg/utils"
 )
 

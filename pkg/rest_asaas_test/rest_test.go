@@ -20,7 +20,7 @@ func TestRestShouldCreateCustomer(t *testing.T) {
 	customer := model.NewCustomer().
 		SetName("John Doe").
 		SetCpfCnpj("00000000191").
-		SetMobilePhone("31986058910")
+		SetMobilePhone("31999999999") // replace with a valid mobile phone number
 	created, err := restEntity.CreateCustomer(customer)
 	require.NoError(t, err, "Failed to create customer")
 	require.Equal(t, customer.Name, created.Name, "Customer name should match")
