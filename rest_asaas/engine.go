@@ -1,4 +1,4 @@
-package rest
+package rest_asaas
 
 // Import resty into your code and refer it as `resty`.
 import (

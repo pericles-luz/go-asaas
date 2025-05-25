@@ -1,11 +1,11 @@
-package rest_test
+package rest_asaas_test
 
 import (
 	"os"
 	"testing"
 	"time"
 
-	"github.com/pericles-luz/go-asaas/factory/factory_client"
+	"github.com/pericles-luz/go-asaas/factory/factory_client_asaas"
 	"github.com/pericles-luz/go-asaas/model"
 	"github.com/pericles-luz/go-base/pkg/utils"
 	"github.com/stretchr/testify/require"
@@ -15,7 +15,7 @@ func TestRestShouldCreateCustomer(t *testing.T) {
 	if os.Getenv("GITHUB_ACTIONS") == "yes" {
 		t.Skip("Skip test in GitHub Actions")
 	}
-	restEntity, err := factory_client.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
+	restEntity, err := factory_client_asaas.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
 	require.NoError(t, err, "Failed to create rest entity")
 	customer := model.NewCustomer().
 		SetName("John Doe").
@@ -33,7 +33,7 @@ func TestRestShouldRetrieveCustomer(t *testing.T) {
 	if os.Getenv("GITHUB_ACTIONS") == "yes" {
 		t.Skip("Skip test in GitHub Actions")
 	}
-	restEntity, err := factory_client.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
+	restEntity, err := factory_client_asaas.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
 	require.NoError(t, err, "Failed to create rest entity")
 	customerID := "cus_000006724433" // Replace with a valid customer ID
 	customer, err := restEntity.GetCustomer(customerID)
@@ -46,7 +46,7 @@ func TestRestShouldListCustomers(t *testing.T) {
 	if os.Getenv("GITHUB_ACTIONS") == "yes" {
 		t.Skip("Skip test in GitHub Actions")
 	}
-	restEntity, err := factory_client.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
+	restEntity, err := factory_client_asaas.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
 	require.NoError(t, err, "Failed to create rest entity")
 	customers, err := restEntity.ListCustomers(map[string]interface{}{
 		"name": "John Doe", // Adjust the filter as needed
@@ -59,7 +59,7 @@ func TestRestShouldSubscribe(t *testing.T) {
 	if os.Getenv("GITHUB_ACTIONS") == "yes" {
 		t.Skip("Skip test in GitHub Actions")
 	}
-	restEntity, err := factory_client.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
+	restEntity, err := factory_client_asaas.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
 	require.NoError(t, err, "Failed to create rest entity")
 	subscription := model.NewSubscription().
 		SetCustomerID("cus_000006724433"). // Replace with a valid customer ID
@@ -83,7 +83,7 @@ func TestRestShouldUnsubscribe(t *testing.T) {
 	if os.Getenv("GITHUB_ACTIONS") == "yes" {
 		t.Skip("Skip test in GitHub Actions")
 	}
-	restEntity, err := factory_client.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
+	restEntity, err := factory_client_asaas.NewClient(utils.GetBaseDirectory("config") + "/sandbox.json")
 	require.NoError(t, err, "Failed to create rest entity")
 	subscriptionID := "sub_1ifrhps9m8mwficw" // Replace with a valid subscription ID
 	err = restEntity.Unsubscribe(subscriptionID)
