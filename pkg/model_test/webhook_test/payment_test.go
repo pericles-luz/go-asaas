@@ -97,9 +97,12 @@ func TestPaymentShouldUnmarshal(t *testing.T) {
 }`)
 	entity := webhook.NewWebhookPayment()
 	require.NoError(t, entity.Unmarshal(data), "should unmarshal webhook data")
-	require.Equal(t, "evt_05b708f961d739ea7eba7e4db318f621&368604920", entity.ID)
+	require.Equal(t, "evt_05b708f961d739ea7eba7e4db318f621&368604920", entity.EventID)
 	require.Equal(t, "PAYMENT_RECEIVED", entity.Event)
 	require.True(t, entity.IsPaid(), "should be a paid event")
 	require.Equal(t, "2024-06-12 16:45:03", entity.DateCreated)
 	require.Equal(t, 10001, entity.ValueAsInt())
+	require.Equal(t, 10001, entity.Amount())
+	require.Equal(t, "pay_080225913252", entity.ID())
+	require.Equal(t, "2021-01-01", entity.PaymentDate())
 }

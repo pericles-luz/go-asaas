@@ -3,7 +3,7 @@ package webhook
 import "encoding/json"
 
 type WebhookPayment struct {
-	ID          string `json:"id"`
+	EventID     string `json:"id"`
 	Event       string `json:"event"`
 	DateCreated string `json:"dateCreated"`
 	Payment     struct {
@@ -114,6 +114,17 @@ func (w *WebhookPayment) ValueAsInt() int {
 	return int(w.Payment.Value * 100)
 }
 
-func (w *WebhookPayment) InvoiceID() string {
+func (w *WebhookPayment) ID() string {
 	return w.Payment.ID
+}
+
+func (w *WebhookPayment) Amount() int {
+	return int(w.Payment.Value * 100)
+}
+
+func (w *WebhookPayment) PaymentDate() string {
+	if w.Payment.PaymentDate != "" {
+		return w.Payment.PaymentDate
+	}
+	return w.Payment.ClientPaymentDate
 }
