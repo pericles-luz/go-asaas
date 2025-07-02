@@ -128,3 +128,7 @@ func (w *WebhookPayment) PaymentDate() string {
 	}
 	return w.Payment.ClientPaymentDate
 }
+
+func (w *WebhookPayment) SubscriptionID() string {
+	return w.Payment.Subscription
+}

@@ -105,4 +105,5 @@ func TestPaymentShouldUnmarshal(t *testing.T) {
 	require.Equal(t, 10001, entity.Amount())
 	require.Equal(t, "pay_080225913252", entity.ID())
 	require.Equal(t, "2021-01-01", entity.PaymentDate())
+	require.Equal(t, "sub_VXJBYgP2u0eO", entity.SubscriptionID())
 }
